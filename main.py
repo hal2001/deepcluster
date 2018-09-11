@@ -20,6 +20,7 @@ import torch.optim
 import torch.utils.data
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
+import ipdb
 
 import clustering
 import models
@@ -120,9 +121,11 @@ def main():
     # preprocessing of data
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
-    tra = [transforms.Resize(256),
-           transforms.CenterCrop(224),
-           transforms.ToTensor(),
+    # tra = [transforms.Resize(256),
+    #        transforms.CenterCrop(224),
+    #        transforms.ToTensor(),
+    #        normalize]
+    tra = [transforms.ToTensor(),
            normalize]
 
     # load the data
@@ -133,7 +136,6 @@ def main():
                                              batch_size=args.batch,
                                              num_workers=args.workers,
                                              pin_memory=True)
-
     # clustering algorithm to use
     deepcluster = clustering.__dict__[args.clustering](args.nmb_cluster)
 
@@ -293,7 +295,9 @@ def compute_features(dataloader, model, N):
     model.eval()
     # discard the label information in the dataloader
     for i, (input_tensor, _) in enumerate(dataloader):
-        input_var = torch.autograd.Variable(input_tensor.cuda(), volatile=True)
+        # input_var = torch.autograd.Variable(input_tensor.cuda(), volatile=True)
+        with torch.no_grad():
+            input_var = torch.Tensor(input_tensor).cuda()
         aux = model(input_var).data.cpu().numpy()
 
         if i == 0:

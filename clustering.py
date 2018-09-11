@@ -139,9 +139,11 @@ def cluster_assign(images_lists, dataset):
 
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
-    t = transforms.Compose([transforms.RandomResizedCrop(224),
-                            transforms.RandomHorizontalFlip(),
-                            transforms.ToTensor(),
+    # t = transforms.Compose([transforms.RandomResizedCrop(224),
+    #                         transforms.RandomHorizontalFlip(),
+    #                         transforms.ToTensor(),
+    #                         normalize])
+    t = transforms.Compose([transforms.ToTensor(),
                             normalize])
 
     return ReassignedDataset(image_indexes, pseudolabels, dataset, t)

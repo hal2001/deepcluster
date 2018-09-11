@@ -6,9 +6,9 @@
 #
 #!/bin/bash
 
-MODEL='/private/home/mathilde/model-to-release/vgg16/checkpoint.pth.tar'
-EXP='/private/home/mathilde/temp'
-CONV=5
-DATA='/datasets01/imagenet_full_size/061417/val'
+MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/checkpoint.pth.tar'
+EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/visualization'
+CONV=4
+DATA='/home/kylehsu/store/miniImageNet/train'
 
 python activ-retrieval.py --model ${MODEL} --exp ${EXP} --conv ${CONV} --data ${DATA}
