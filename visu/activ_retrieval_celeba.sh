@@ -9,7 +9,7 @@
 MODEL='/home/kylehsu/experiments/deepcluster/log/celeba/current/checkpoint.pth.tar'
 EXP='/home/kylehsu/experiments/deepcluster/log/celeba/current/retrieval'
 CONV=5
-DATA='/home/kylehsu/store/maml/data/celeba/cropped/Img_resized84_split/train'
+DATA='./data/celeba/cropped/Img_resized84_split/train'
 
 python activ-retrieval.py --model ${MODEL} --exp ${EXP} --conv ${CONV} --data ${DATA} \
 --dataset celeba --images 25

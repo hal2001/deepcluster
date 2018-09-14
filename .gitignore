@@ -6,3 +6,5 @@
 third-parties/
 third-parties/*
 log/
+data/
+.idea/

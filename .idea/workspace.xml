@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="498b7bbf-ea89-408f-be70-d832397335c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infer.py" beforeDir="false" afterPath="$PROJECT_DIR$/infer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infer_miniimagenet.sh" beforeDir="false" afterPath="$PROJECT_DIR$/infer_miniimagenet.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/alexnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/alexnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_miniimagenet.sh" beforeDir="false" afterPath="$PROJECT_DIR$/train_miniimagenet.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visu/activ-retrieval.py" beforeDir="false" afterPath="$PROJECT_DIR$/visu/activ-retrieval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visu/activ-retrieval.sh" beforeDir="false" afterPath="$PROJECT_DIR$/visu/activ-retrieval.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visu/gradient_ascent.py" beforeDir="false" afterPath="$PROJECT_DIR$/visu/gradient_ascent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visu/gradient_ascent.sh" beforeDir="false" afterPath="$PROJECT_DIR$/visu/gradient_ascent.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infer_celeba.sh" beforeDir="false" afterPath="$PROJECT_DIR$/infer_celeba.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_celeba.sh" beforeDir="false" afterPath="$PROJECT_DIR$/train_celeba.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visu/activ_retrieval_celeba.sh" beforeDir="false" afterPath="$PROJECT_DIR$/visu/activ_retrieval_celeba.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +24,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="LICENSE" value="1" />
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="md" value="3" />
           <entry key="py" value="49" />
           <entry key="sh" value="18" />
@@ -40,21 +34,21 @@
         <counts>
           <entry key="Bash" value="18" />
           <entry key="Markdown" value="3" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="4" />
+          <entry key="gitignore" value="18" />
           <entry key="py" value="3699" />
-          <entry key="sh" value="902" />
+          <entry key="sh" value="909" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="902" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Bash" value="909" />
+          <entry key="PLAIN_TEXT" value="18" />
           <entry key="Python" value="3699" />
         </counts>
       </usages-collector>
@@ -86,19 +80,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/miniconda2/envs/deepcluster/lib/python2.7/site-packages/torchvision-0.2.1-py2.7.egg!/torchvision/datasets/folder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_celeba.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="75">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -115,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infer_celeba.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
+            <state relative-caret-position="60">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -124,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visu/activ-retrieval.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-end-line="14" />
+            <state relative-caret-position="135">
+              <caret line="9" column="77" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -145,8 +130,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visu/activ_retrieval_celeba.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="76" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -203,21 +197,21 @@
         <option value="$PROJECT_DIR$/models/vgg16.py" />
         <option value="$PROJECT_DIR$/main.sh" />
         <option value="$PROJECT_DIR$/visu/infer.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/models/alexnet.py" />
         <option value="$PROJECT_DIR$/visu/gradient_ascent.sh" />
-        <option value="$PROJECT_DIR$/visu/activ-retrieval.sh" />
         <option value="$PROJECT_DIR$/visu/gradient_ascent.py" />
         <option value="$PROJECT_DIR$/train_miniimagenet.sh" />
         <option value="$PROJECT_DIR$/split.py" />
         <option value="$PROJECT_DIR$/visu/activ-retrieval.py" />
-        <option value="$PROJECT_DIR$/visu/activ_retrieval_celeba.sh" />
         <option value="$PROJECT_DIR$/infer_miniimagenet.sh" />
-        <option value="$PROJECT_DIR$/infer_celeba.sh" />
-        <option value="$PROJECT_DIR$/train_celeba.sh" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/clustering.py" />
         <option value="$PROJECT_DIR$/infer.py" />
+        <option value="$PROJECT_DIR$/train_celeba.sh" />
+        <option value="$PROJECT_DIR$/infer_celeba.sh" />
+        <option value="$PROJECT_DIR$/visu/activ-retrieval.sh" />
+        <option value="$PROJECT_DIR$/visu/activ_retrieval_celeba.sh" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -448,13 +442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -548,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visu/activ-retrieval.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visu/activ-retrieval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -562,13 +542,6 @@
           <folding>
             <element signature="e#192#207#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visu/activ_retrieval_celeba.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="76" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -596,13 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infer_celeba.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1706">
@@ -615,8 +581,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_celeba.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="75">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infer_celeba.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visu/activ-retrieval.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="77" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visu/activ_retrieval_celeba.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>

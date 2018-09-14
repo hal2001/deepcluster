@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIR="/home/kylehsu/store/maml/data/celeba/cropped/Img_resized84_split/train"
+DIR="./data/celeba/cropped/Img_resized84_split/train"
 ARCH="alexnet"
 LR=0.05
 WD=-5
