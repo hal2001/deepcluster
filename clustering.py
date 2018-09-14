@@ -120,7 +120,7 @@ def make_graph(xb, nnn):
     return I, D
 
 
-def cluster_assign(images_lists, dataset):
+def cluster_assign(images_lists, dataset, dataset_name):
     """Creates a dataset from clustering, with clusters as labels.
     Args:
         images_lists (list of list): for each cluster, the list of image indexes
@@ -143,8 +143,20 @@ def cluster_assign(images_lists, dataset):
     #                         transforms.RandomHorizontalFlip(),
     #                         transforms.ToTensor(),
     #                         normalize])
-    t = transforms.Compose([transforms.ToTensor(),
-                            normalize])
+    if dataset_name == 'miniimagenet':
+        t = transforms.Compose([transforms.RandomResizedCrop(64),
+                                transforms.RandomHorizontalFlip(),
+                                transforms.ToTensor(),
+                                normalize])
+    elif dataset_name == 'celeba':
+        # t = transforms.Compose([transforms.Resize(64, interpolation=1),
+        #                        transforms.RandomHorizontalFlip(),
+        #                        transforms.ToTensor(),
+        #                        normalize])
+        t = transforms.Compose([transforms.RandomResizedCrop(64),
+                                transforms.RandomHorizontalFlip(),
+                                transforms.ToTensor(),
+                                normalize])
 
     return ReassignedDataset(image_indexes, pseudolabels, dataset, t)
 

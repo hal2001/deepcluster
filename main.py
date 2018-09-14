@@ -30,6 +30,8 @@ from util import AverageMeter, Logger, UnifLabelSampler
 parser = argparse.ArgumentParser(description='PyTorch Implementation of DeepCluster')
 
 parser.add_argument('data', metavar='DIR', help='path to dataset')
+parser.add_argument('--dataset', default='miniimagenet', help='dataset name')
+
 parser.add_argument('--arch', '-a', type=str, metavar='ARCH',
                     choices=['alexnet', 'vgg16'], default='alexnet',
                     help='CNN architecture (default: alexnet)')
@@ -125,8 +127,17 @@ def main():
     #        transforms.CenterCrop(224),
     #        transforms.ToTensor(),
     #        normalize]
-    tra = [transforms.ToTensor(),
-           normalize]
+    if args.dataset == 'miniimagenet':
+        tra = [transforms.CenterCrop(64),
+               transforms.ToTensor(),
+               normalize]
+    elif args.dataset == 'celeba':
+        # tra = [transforms.Resize(64, interpolation=1),  # 1 = LANCZOS
+        #        transforms.ToTensor(),
+        #        normalize]
+        tra = [transforms.CenterCrop(64),
+               transforms.ToTensor(),
+               normalize]
 
     # load the data
     end = time.time()
@@ -155,7 +166,8 @@ def main():
 
         # assign pseudo-labels
         train_dataset = clustering.cluster_assign(deepcluster.images_lists,
-                                                  dataset.imgs)
+                                                  dataset.imgs,
+                                                  args.dataset)
 
         # uniformely sample per target
         sampler = UnifLabelSampler(int(args.reassign * len(train_dataset)),
@@ -285,7 +297,7 @@ def train(loader, model, crit, opt, epoch):
                   .format(epoch, i, len(loader), batch_time=batch_time,
                           data_time=data_time, loss=losses))
 
-        return losses.avg
+    return losses.avg
 
 def compute_features(dataloader, model, N):
     if args.verbose:

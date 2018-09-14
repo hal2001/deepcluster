@@ -29,6 +29,7 @@ parser.add_argument('--exp', type=str, default='', help='path to res')
 parser.add_argument('--workers', default=4, type=int,
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--batch', type=int, default=256)
+parser.add_argument('--dataset', type=str, default='miniimagenet')
 
 
 def main():
@@ -54,12 +55,21 @@ def main():
     #        transforms.CenterCrop(224),
     #        transforms.ToTensor(),
     #        normalize]
-    tra = [transforms.ToTensor(),
-           normalize]
-
+    if args.dataset == 'miniimagenet':
+        tra = [transforms.CenterCrop(64),
+               transforms.ToTensor(),
+               normalize]
+    elif args.dataset == 'celeba':
+        # tra = [transforms.Resize(64, interpolation=1),  # 1 = LANCZOS
+        #        transforms.ToTensor(),
+        #        normalize]
+        tra = [transforms.CenterCrop(64),
+               transforms.ToTensor(),
+               normalize]
     for split in ['train', 'val', 'test']:
         # dataset
         dataset = datasets.ImageFolder(os.path.join(args.data, split), transform=transforms.Compose(tra))
+        # ipdb.set_trace()
         dataloader = torch.utils.data.DataLoader(dataset, batch_size=256,
                                                  num_workers=args.workers)
 
@@ -68,20 +78,20 @@ def main():
         model.classifier = nn.Sequential(*list(model.classifier.children())[:-1])
 
         # compute features
-        features, labels, origs = compute_features(dataloader, model, len(dataset))
+        features, labels = compute_features(dataloader, model, len(dataset))
         features = preprocess_features(features, pca=256)
-        invTrans = transforms.Compose([transforms.Normalize(mean=[0., 0., 0.],
-                                                            std=[1 / 0.229, 1 / 0.224, 1 / 0.225]),
-                                       transforms.Normalize(mean=[-0.485, -0.456, -0.406],
-                                                            std=[1., 1., 1.]),
-                                       ])
-        origs = torch.cat(origs, dim=0)
-        origs = torch.stack([invTrans(orig) for orig in origs]).numpy()
-        origs = np.transpose(origs, (0, 2, 3, 1))
-        uint8_origs = (np.round(origs*255)).astype('uint8')
-        ipdb.set_trace()
-        np.savez(os.path.join(args.exp, '%s_%d_%s.npz' % ('miniimagenet', 256, split)),
-                 X=uint8_origs, Y=labels, Z=features)
+        # invTrans = transforms.Compose([transforms.Normalize(mean=[0., 0., 0.],
+        #                                                     std=[1 / 0.229, 1 / 0.224, 1 / 0.225]),
+        #                                transforms.Normalize(mean=[-0.485, -0.456, -0.406],
+        #                                                     std=[1., 1., 1.]),
+        #                                ])
+        origs = dataset.imgs
+        images = np.stack([np.array(Image.open(filename)) for filename, label in origs], axis=0)
+        if args.dataset == 'celeba':
+            labels = np.array([int(filename[filename.rfind('/')+1:filename.find('.jpg')]) for filename, _ in origs])
+
+        np.savez(os.path.join(args.exp, '%s_%d_%s.npz' % (args.dataset, 256, split)),
+                 X=images, Y=labels, Z=features)
     #
     #
     # # keys are filters and value are arrays with activation scores for the whole dataset
@@ -134,9 +144,7 @@ def forward(model, my_layer, x):
 
 def compute_features(dataloader, model, N):
     model.eval()
-    origs = []
     for i, (input_tensor, label) in enumerate(dataloader):
-        origs.append(input_tensor)
         # input_var = torch.autograd.Variable(input_tensor.cuda(), volatile=True)
         with torch.no_grad():
             input_var = torch.Tensor(input_tensor).cuda()
@@ -154,7 +162,7 @@ def compute_features(dataloader, model, N):
             features[i * args.batch:] = aux.astype('float32')
             labels[i * args.batch:] = label.data.numpy().astype('int32')
 
-    return features, labels, origs
+    return features, labels
 
 if __name__ == '__main__':
     main()

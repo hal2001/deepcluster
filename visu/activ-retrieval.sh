@@ -6,9 +6,9 @@
 #
 #!/bin/bash
 
-MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/checkpoint.pth.tar'
-EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/visualization'
-CONV=4
+MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/checkpoint.pth.tar'
+EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/retrieval'
+CONV=5
 DATA='/home/kylehsu/store/miniImageNet/train'
 
 python activ-retrieval.py --model ${MODEL} --exp ${EXP} --conv ${CONV} --data ${DATA}

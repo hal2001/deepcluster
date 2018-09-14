@@ -15,6 +15,7 @@ import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
+import ipdb
 
 sys.path.insert(0, '..')
 from util import load_model
@@ -26,6 +27,8 @@ parser.add_argument('--conv', type=int, default=1, help='convolutional layer')
 parser.add_argument('--exp', type=str, default='', help='path to res')
 parser.add_argument('--workers', default=4, type=int,
                     help='number of data loading workers (default: 4)')
+parser.add_argument('--dataset', type=str, help='dataset name')
+parser.add_argument('--images', type=int, default=9, help='number of images per channel')
 
 
 def main():
@@ -50,9 +53,14 @@ def main():
     #        transforms.CenterCrop(224),
     #        transforms.ToTensor(),
     #        normalize]
-    tra = [transforms.ToTensor(),
-           normalize]
-
+    if args.dataset == 'miniimagenet':
+        tra = [transforms.CenterCrop(64),
+               transforms.ToTensor(),
+               normalize]
+    elif args.dataset == 'celeba':
+        tra = [transforms.Resize(64, interpolation=1),
+               transforms.ToTensor(),
+               normalize]
     # dataset
     dataset = datasets.ImageFolder(args.data, transform=transforms.Compose(tra))
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=256,
@@ -83,7 +91,7 @@ def main():
         if not os.path.isdir(repofilter):
             os.mkdir(repofilter)
         top = np.argsort(layers_activations[filt])[::-1]
-        for img in top[:9]:
+        for img in top[:args.images]:
             src, _ = dataset.imgs[img]
             copyfile(src, os.path.join(repofilter, src.split('/')[-1]))
 

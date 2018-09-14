@@ -25,10 +25,10 @@ parser.add_argument('--arch', type=str, default='alexnet', choices=['alexnet', '
 parser.add_argument('--conv', type=int, default=1, help='convolutional layer')
 parser.add_argument('--exp', type=str, default='', help='path to res')
 parser.add_argument('--lr', type=float, default=3, help='learning rate (default: 3)')
-parser.add_argument('--wd', type=float, default=0.00001, help='weight decay (default: 10^-5)')
-parser.add_argument('--sig', type=float, default=0.3, help='gaussian blur (default: 0.3)')
+parser.add_argument('--wd', type=float, default=0.01, help='weight decay (default: 10^-5)')
+parser.add_argument('--sig', type=float, default=0.2, help='gaussian blur (default: 0.3)')
 parser.add_argument('--step', type=int, default=5, help='number of iter between gaussian blurs (default: 5)')
-parser.add_argument('--niter', type=int, default=1000, help='total number of iterations (default: 1000)')
+parser.add_argument('--niter', type=int, default=5000, help='total number of iterations (default: 1000)')
 parser.add_argument('--idim', type=int, default=224, help='size of input image (default: 224)')
 
 CONV = {'alexnet': [96, 256, 384, 384, 256],

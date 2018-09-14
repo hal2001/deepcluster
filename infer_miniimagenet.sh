@@ -6,8 +6,8 @@
 #
 #!/bin/bash
 
-MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/vanilla/checkpoint.pth.tar'
-EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/features'
+MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/checkpoint.pth.tar'
+EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/features'
 DATA='/home/kylehsu/store/miniImageNet'
 
-python infer.py --model ${MODEL} --exp ${EXP} --data ${DATA}
+python infer.py --model ${MODEL} --exp ${EXP} --data ${DATA} --dataset miniimagenet
