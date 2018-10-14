@@ -10,4 +10,4 @@ MODEL='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/checkpoint
 EXP='/home/kylehsu/experiments/deepcluster/log/miniimagenet/current/features'
 DATA='/home/kylehsu/store/miniImageNet'
 
-python infer.py --model ${MODEL} --exp ${EXP} --data ${DATA} --dataset miniimagenet
+python infer.py --model ${MODEL} --exp ${EXP} --data ${DATA} --dataset miniimagenet --raw

@@ -30,7 +30,7 @@ parser.add_argument('--workers', default=4, type=int,
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--batch', type=int, default=256)
 parser.add_argument('--dataset', type=str, default='miniimagenet')
-
+parser.add_argument('--raw', action='store_true', default=False)
 
 def main():
     global args
@@ -79,7 +79,8 @@ def main():
 
         # compute features
         features, labels = compute_features(dataloader, model, len(dataset))
-        features = preprocess_features(features, pca=256)
+        if not args.raw:
+            features = preprocess_features(features, pca=256)
         # invTrans = transforms.Compose([transforms.Normalize(mean=[0., 0., 0.],
         #                                                     std=[1 / 0.229, 1 / 0.224, 1 / 0.225]),
         #                                transforms.Normalize(mean=[-0.485, -0.456, -0.406],
@@ -90,8 +91,12 @@ def main():
         if args.dataset == 'celeba':
             labels = np.array([int(filename[filename.rfind('/')+1:filename.find('.jpg')]) for filename, _ in origs])
 
-        np.savez(os.path.join(args.exp, '%s_%d_%s.npz' % (args.dataset, 256, split)),
+        if args.raw:
+            np.savez(os.path.join(args.exp, '%s_%d_%s_raw.npz' % (args.dataset, 256, split)),
                  X=images, Y=labels, Z=features)
+        else:
+            np.savez(os.path.join(args.exp, '%s_%d_%s.npz' % (args.dataset, 256, split)),
+                     X=images, Y=labels, Z=features)
     #
     #
     # # keys are filters and value are arrays with activation scores for the whole dataset
