@@ -8,3 +8,4 @@ third-parties/*
 log/
 data/
 .idea/
+**/.idea/workspace.xml
